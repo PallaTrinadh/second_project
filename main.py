@@ -13,6 +13,7 @@ def get_db():
         yield db
     finally:
         db.close()
+        print("completed")
 
 @app.post("/user_s/",response_model= schemas.UserResponse)
 def create_user(user:schemas.UserCreate,db : Session=Depends(get_db)):
