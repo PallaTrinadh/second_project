@@ -14,7 +14,7 @@ def get_db():
     finally:
         db.close()
 
-@app.post("/users/",response_model= schemas.UserResponse)
+@app.post("/user_s/",response_model= schemas.UserResponse)
 def create_user(user:schemas.UserCreate,db : Session=Depends(get_db)):
     db_user = models.User(**user.dict())
     db.add(db_user)
